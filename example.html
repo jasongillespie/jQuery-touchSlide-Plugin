@@ -1,0 +1,50 @@
+<html>
+	<head>
+		<title>Touch Slide Example</title>
+		<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+		<script src="jquery.touch-slide.js"></script>	
+	</head>
+	<body>
+
+		<div id='slides'>
+			<img src='http://placehold.it/400x300' class='active' /> 
+			<img src='http://placehold.it/400x300' /> 
+			<img src='http://placehold.it/400x300' /> 
+			<img src='http://placehold.it/400x300' /> 
+		</div> <!-- .slides -->
+
+		<style>
+			#slides {
+				overflow: hidden;
+				position: relative;
+				max-width: 400px;
+				width: 100%;
+				border: 10px solid black;
+			}
+			#slides img {
+				display: inline-block;
+				position: relative;
+				left: -100%;
+				vertical-align: top;
+				margin-right: -100%;
+				-webkit-transition: 0.5s;
+				-moz-transition: 0.5s;
+				-o-transition: 0.5s;
+				-ms-transition: 0.5s;
+				transition: 0.5s;
+			}
+			#slides img.active {
+				left: 0;
+			}
+			#slides img.active ~ img {
+				left: 100%;
+			}
+		</style>
+
+		<script>
+			$(document).ready(function () {
+				$('#slides').touchSlide();
+			});
+		</script>
+	</body>
+</html>
